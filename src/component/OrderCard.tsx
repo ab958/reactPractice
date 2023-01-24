@@ -1,18 +1,19 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../app/store";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { adddish } from "../features/orderSlice";
 
 
-export default function OrderCard({ name, index }: any) {
+export default function OrderCard({ name, index,order,id }: any) {
   const [orderNameInput, setorderNameInput] = useState('');
-  const order = useSelector((state:RootState) => state.order.dishes);
 
   const dispatch = useDispatch();
 
   const handleAddOrder = () =>{
     if(!orderNameInput) return;
-    dispatch(adddish(orderNameInput))
+    dispatch(adddish({
+      id,
+      food: orderNameInput
+    }))
     setorderNameInput('')
   }
 
@@ -20,9 +21,11 @@ export default function OrderCard({ name, index }: any) {
     <div className="customer-food-card-container">
       <p>{name}</p>
       <div className="customer-foods-container">
-        {order.length > 0 &&  order.map((name) =>{
-          return <div className="customer-food">{name}</div>
+      <div className="customer-food">
+        {order.length > 0 &&  order.map((name: any) =>{ 
+          return <p>{name}</p>
         })}
+        </div>
         <div className="customer-food-input-container">
           <input value={orderNameInput} onChange = {e => setorderNameInput(e.target.value) }/>
           <button onClick={handleAddOrder}>Add</button>
