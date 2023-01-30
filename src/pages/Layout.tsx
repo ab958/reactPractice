@@ -11,13 +11,13 @@ const Layout = () => {
           <li style={{"paddingTop": "10px"}}>
             <Link to="/simpleredux">Simple Redux</Link>
           </li>
-          {/* <li style={{"paddingTop": "10px"}}>
-            <Link to="/simpleredux">Simple Redux</Link>
-          </li> */}
+          <li style={{"paddingTop": "10px"}}>
+            <Link to="/reduxapis">Redux Mangement using APIs</Link>
+          </li>
         </ul>
       </nav>
       </div>
-      <Outlet />
+      {/* <Outlet /> */}
     </>
   )
 };

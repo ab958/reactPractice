@@ -8,6 +8,7 @@ import { store } from './app/store';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from './pages/Layout';
 import NoPage from './pages/Nopage';
+import BasicCard from './component/Card';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -19,6 +20,7 @@ root.render(
       <Routes>
         <Route path="/" element={<Layout />} />
         <Route path="/simpleredux" element={<App />} />
+        <Route path="/reduxapis" element={<BasicCard />} />
         <Route path="*" element={<NoPage />} />
       </Routes>
     </BrowserRouter>
