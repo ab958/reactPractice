@@ -12,7 +12,7 @@ const Layout = () => {
             <Link to="/simpleredux">Simple Redux</Link>
           </li>
           <li style={{"paddingTop": "10px"}}>
-            <Link to="/reduxapis">Redux Mangement using APIs</Link>
+            <Link to="/reduxapis">Redux Mangement with APIs</Link>
           </li>
         </ul>
       </nav>

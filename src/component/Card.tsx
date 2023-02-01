@@ -1,6 +1,16 @@
 import * as React from 'react';
 
 export default function BasicCard() {
+    let [data,setData] = React.useState({
+        name: '',
+        age: 0,
+        colour: ''
+    })
+  
+    let handleUerValue = () =>{
+        if(!data) return;
+        console.log(data)
+    }
     return (
         <>
         <h2 style={{"margin": "30px"}}>Post Data </h2>
@@ -8,19 +18,19 @@ export default function BasicCard() {
                 <form method="post" action="/" id="form" className="validate">
                     <div className="form-field">
                         <label>name</label>
-                        <input type="text" name="full-name" id="full-name" placeholder="Joe Bloggs" required />
+                        <input type="text" name="full-name" id="full-name" placeholder="Joe Bloggs" required value={data.name} onChange = {e => setData(a => ({...a, name: e.target.value })) }/>
                     </div>
                     <div className="form-field">
                         <label>age</label>
-                        <input type="email" name="email-input" id="email-input" placeholder="66" required />
+                        <input type="number" name="email-input" id="email-input" placeholder="66" required value={data.age} onChange = {e => setData(a => ({...a, age: Number(e.target.value) })) }/>
                     </div>
                     <div className="form-field">
                         <label>colour</label>
-                        <input type="text" name="password-input" id="password-input" placeholder="blue" required />
+                        <input type="text" name="password-input" id="password-input" placeholder="blue" required value={data.colour} onChange = {e => setData(a => ({...a, colour: e.target.value })) }/>
                     </div>
                     <div className="form-field">
                         <label ></label>
-                        <input type="submit" value="Post it" />
+                        <input type="submit" value="Post it" onClick={handleUerValue}/>
                     </div>
                 </form>
             </div>
